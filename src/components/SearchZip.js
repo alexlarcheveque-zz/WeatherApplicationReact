@@ -27,11 +27,14 @@ class SearchZip extends React.Component {
           appid: APIKey
         }
       }).then(res => {
-        this.setState({ mainTemp: res.data.main.temp });
-        this.setState({ feelsLike: res.data.main.feels_like });
-        this.setState({ weather: res.data.weather[0].description });
-        this.setState({ city: res.data.name });
-        this.setState({ showResults: true });
+        this.setState({
+          mainTemp: res.data.main.temp,
+          feelsLike: res.data.main.feels_like,
+          weather: res.data.weather[0].description,
+          city: res.data.name,
+          showResults: true,
+          errors: ""
+        });
       });
     } else {
       this.setState({ errors: "Please enter a 5-digit valid zip code." });
@@ -50,7 +53,7 @@ class SearchZip extends React.Component {
 
   render() {
     return (
-      <div className="center">
+      <div className="center-rain">
         <form onSubmit={this.handleSubmit}>
           <input
             className="form-control"
@@ -65,12 +68,16 @@ class SearchZip extends React.Component {
         <p className="error-message"> {this.state.errors} </p>
         <span id="weather">
           {this.state.showResults ? (
-            <Weather
-              mainTemp={this.state.mainTemp}
-              feelsLike={this.state.feelsLike}
-              weather={this.state.weather}
-              city={this.state.city}
-            />
+            <div class="card">
+              <div class="card-body center">
+                <Weather
+                  mainTemp={this.state.mainTemp}
+                  feelsLike={this.state.feelsLike}
+                  weather={this.state.weather}
+                  city={this.state.city}
+                />
+              </div>
+            </div>
           ) : null}
         </span>
       </div>

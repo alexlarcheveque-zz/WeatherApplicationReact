@@ -1,4 +1,5 @@
 import React from "react";
+import "./Weather.css";
 
 function Weather(props) {
   function convertToFaren(temp) {
@@ -7,16 +8,14 @@ function Weather(props) {
 
   return (
     <div>
-      <h1 class="display-3"> {props.city} </h1>
-      <p>
-        {" "}
+      <h1 class="card-title"> {props.city} </h1>
+      <p class="card-text">
         Temperature: {convertToFaren(props.mainTemp)} <span>&#8457;</span>
       </p>
-      <p>
-        {" "}
+      <p class="card-text">
         Feels Like: {convertToFaren(props.feelsLike)} <span>&#8457;</span>
       </p>
-      <p> Weather: {props.weather} </p>
+      <p class="card-text">Weather: {props.weather}</p>
     </div>
   );
 }
