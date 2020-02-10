@@ -13,13 +13,3 @@
 form {
   margin: 20px;
 }
-
-div.rain {
-  text-align: center;
-  background-color: gray;
-}
-
-body,
-html {
-  height: 100%;
-}
