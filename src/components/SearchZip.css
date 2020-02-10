@@ -14,12 +14,12 @@ form {
   margin: 20px;
 }
 
-#weather {
-  margin: 20px;
+div.rain {
+  text-align: center;
+  background-color: gray;
 }
 
-.card {
-  text-align: center;
-  margin-left: 50px;
-  margin-right: 50px;
+body,
+html {
+  height: 100%;
 }

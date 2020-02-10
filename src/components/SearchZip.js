@@ -53,32 +53,36 @@ class SearchZip extends React.Component {
 
   render() {
     return (
-      <div className="center-rain">
-        <form onSubmit={this.handleSubmit}>
-          <input
-            className="form-control"
-            placeholder="Enter Zip Code"
-            onChange={event => this.setState({ zipCode: event.target.value })}
-            type="text"
-            name="userZipCode"
-            aria-describedby="basic-addon1"
-            required
-          />
-        </form>
-        <p className="error-message"> {this.state.errors} </p>
-        <span id="weather">
-          {this.state.showResults ? (
-            <div class="card">
-              <div class="card-body center">
-                <Weather
-                  mainTemp={this.state.mainTemp}
-                  feelsLike={this.state.feelsLike}
-                  weather={this.state.weather}
-                  city={this.state.city}
-                />
+      <div className="zipCodeSearch">
+        <span>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              className="form-control"
+              placeholder="Enter Zip Code"
+              onChange={event => this.setState({ zipCode: event.target.value })}
+              type="text"
+              name="userZipCode"
+              aria-describedby="basic-addon1"
+              required
+            />
+          </form>
+        </span>
+        <span>
+          <p className="error-message"> {this.state.errors} </p>
+          <span id="weather">
+            {this.state.showResults ? (
+              <div class={`card ${this.state.weather}`}>
+                <div class="card-body center">
+                  <Weather
+                    mainTemp={this.state.mainTemp}
+                    feelsLike={this.state.feelsLike}
+                    weather={this.state.weather}
+                    city={this.state.city}
+                  />
+                </div>
               </div>
-            </div>
-          ) : null}
+            ) : null}
+          </span>
         </span>
       </div>
     );
